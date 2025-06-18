@@ -12,14 +12,12 @@
       --text-color: #f5f5f5;
       --accent-color: #00ccff;
     }
-
     [data-theme="light"] {
       --bg-color: #f5f5f5;
       --card-bg: #ffffff;
       --text-color: #111;
       --accent-color: #0066cc;
     }
-
     body, html {
       margin: 0;
       padding: 0;
@@ -30,32 +28,17 @@
       scroll-behavior: smooth;
       transition: background 0.3s ease;
     }
-
     a {
       color: var(--accent-color);
       text-decoration: none;
     }
-
     a:hover {
       text-decoration: underline;
     }
-
-    .header-image {
-      width: 100%;
-      height: 30vh;
-      background-image: url('https://upload.wikimedia.org/wikipedia/commons/7/7d/Solar_System_Artist_Rendering_with_Orbits_and_Planets_%282023%29.jpg'); 
-      background-size: cover;
-      background-position: center;
-      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .container {
       max-width: 1200px;
       width: 90%;
-      margin: -70px auto 0 auto;
+      margin: 40px auto;
       padding: 40px 30px;
       background-color: var(--card-bg);
       border-radius: 12px;
@@ -64,14 +47,12 @@
       transform: translateY(20px);
       animation: fadeInUp 1s forwards;
     }
-
     @keyframes fadeInUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     h1 {
       font-size: 64px;
       color: var(--accent-color);
@@ -79,7 +60,6 @@
       margin-bottom: 40px;
       animation: glow 2s ease-in-out infinite alternate;
     }
-
     @keyframes glow {
       from {
         text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color);
@@ -88,7 +68,6 @@
         text-shadow: 0 0 20px var(--accent-color), 0 0 30px var(--accent-color), 0 0 40px var(--accent-color);
       }
     }
-
     h2, h3 {
       color: var(--accent-color);
       font-weight: bold;
@@ -96,20 +75,16 @@
       border-left: 5px solid var(--accent-color);
       padding-left: 10px;
     }
-
     p, ul {
       line-height: 1.8;
       margin-bottom: 20px;
     }
-
     ul {
       margin-left: 20px;
     }
-
     li {
       margin-bottom: 10px;
     }
-
     footer {
       text-align: center;
       margin-top: 60px;
@@ -119,7 +94,6 @@
       font-size: 14px;
       border-top: 1px solid #222;
     }
-
     img {
       display: block;
       margin: 30px auto;
@@ -127,7 +101,6 @@
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 204, 255, 0.2);
     }
-
     iframe {
       width: 100%;
       height: 600px;
@@ -135,12 +108,10 @@
       border-radius: 10px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
     }
-
     section:hover {
       transform: scale(1.01);
       transition: transform 0.3s ease;
     }
-
     .btn-contact {
       display: inline-block;
       margin-top: 20px;
@@ -152,11 +123,9 @@
       transition: background 0.3s ease;
       cursor: pointer;
     }
-
     .btn-contact:hover {
       background: #00aaff;
     }
-
     .toggle-theme {
       position: fixed;
       top: 20px;
@@ -170,7 +139,6 @@
       cursor: pointer;
       font-weight: bold;
     }
-
     /* 响应式设计 */
     @media (max-width: 768px) {
       h1 {
@@ -180,36 +148,22 @@
         padding: 20px 15px;
       }
     }
-
-    /* 粒子背景 */
-    canvas#particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      background: var(--bg-color);
-    }
   </style>
 </head>
 <body>
 
-<canvas id="particles-js"></canvas>
-
+<!-- 暗黑/亮色模式切换按钮 -->
 <button class="toggle-theme" onclick="toggleTheme()">Toggle Theme</button>
 
-<header class="header-image"></header>
-
+<!-- 页面主体内容 -->
 <div class="container">
-
   <h1>Join the Journey</h1>
 
   <!-- 公司简介 -->
   <section>
     <h2>Company Overview</h2>
     <p>Beijing Chengzhang Data Technology Co., Ltd. was founded in 2022 and focuses on database technology. Our core team comes from top companies such as Microsoft Research Asia, VMware, Xiaomi, Baidu, Alibaba, PingCAP, Kuaishou, Zhihu, and more.</p>
-    <p>We offer R&D internships every year. Over the past few years, students from Peking University, Tsinghua University, CMU, Monash University, and other prestigious institutions have completed or are currently undertaking internships with us.</p>
+    <p>We offer R&D internships every year. Over the past few years, students from Peking University, Tsinghua University, CMU, The University of Melbourne, and other prestigious universities have completed or are currently doing internships with us.</p>
     <p>We are dedicated to building next-generation enterprise-grade databases with independent IP and global differentiation. Our products are based on the concept of "Data Substrate", supporting both private and public cloud deployments.</p>
     <p>In 2025, we fully open-sourced our products. Please visit:
       <a href="https://github.com/eloqdata/eloqkv"  target="_blank">EloqKV</a>,
@@ -287,42 +241,50 @@
     <section>
       <h3>Written Test for C++ Candidates</h3>
       <p>Please complete the concurrent array update task described in the problem statement.</p>
+      <p>Question.
+               Given an integer array S of length N (N = 100,000), there are M (M >= 2) workers concurrently accessing and updating S. Each worker repeats the following operation 10,000 times:
+               Generate random numbers i and j, 0 <= i, j < 100,000.
+               Update S such that S(j) = S(i) + S(i+1) + S(i+2). If i + 1 or i + 2 is out of bounds, then use (i+1) % N or (i+2) % N.
+               Hint:
+               (a) Please consider concurrent protection，即reading S(i), S(i+1), S(i+2) 和updating S(j) 是原子操作。
+               *Refer to the two-phase locking algorithm 
+               (b) Pay attention to the lock granularity. Each worker only reads 3 elements at a time and writes 1 element. There are a total of 100,000 elements. The probability that concurrent workers access the same element is very low. Using fine-grained locks can reduce conflicts and improve concurrency. 
+               (c) Pay attention to the difference between read locks and write locks. 
+               (d) j may fall in the [i, i+2] range. 
+               (e) Additional thinking: Will deadlock occur? How to avoid?
+      <p>完成后请发送至 <u>hr@monographdb.com</u>，我会在24小时内回复。</p>
     </section>
 
     <section>
-      <h3>Intern – Frontend Developer</h3>
+      <h3>Full-time – Full-stack Developer</h3>
       <ul>
         <li>Develop ECloud platform interfaces</li>
-        <li>Skills: JavaScript, TypeScript, React/Vue, Webpack</li>
+        <li>Skills: Next.js，Golangk</li>
+        
       </ul>
     </section>
 
     <section>
-      <h3>Full-time – Project Manager</h3>
-      <ul>
-        <li>Manage database projects, ensure delivery timelines and quality</li>
-        <li>Requirements: CS degree preferred, familiarity with Jira/GitHub</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>Full-time – Cloud Native / Kubernetes Engineer</h3>
+      <h3>Full-time – Golang/Cloud Native Engineer</h3>
       <ul>
         <li>Build reliable database platforms on Kubernetes</li>
-        <li>Skills: Golang/Docker/Kubernetes, Prometheus, Grafana</li>
+        <li>Skills: Golang/Docker/Kubernetes</li>
       </ul>
     </section>
 
     <section>
-      <h3>Written Test for Golang Engineers</h3>
+      <h3>Written Test for Golang/Cloud Engineers</h3>
+      <p>完成后请发送至 <u>hr@monographdb.com</u>，我会在24小时内回复。</p>
       <iframe src="/question.pdf#toolbar=0" width="100%" height="600px"></iframe>
     </section>
 
     <center><a href="#top" class="btn-contact">Back to Top</a></center>
   </section>
 
-  <img src="https://github.com/Chengzhang-Database/chengzhang-database.github.io/blob/main/扫码_搜索联合传播样式-白色版.png?raw=true" alt="欢迎关注我们的公众号了解更多信息" />
-
+  <!-- 二维码图片 -->
+  <img src="https://github.com/Chengzhang-Database/chengzhang-database.github.io/blob/main/扫码_搜索联合传播样式-白色版.png?raw=true"
+       alt="欢迎关注我们的公众号了解更多信息"
+       style="width: 25%; max-width: 25%; display: block; margin: 40px auto;">
 </div>
 
 <footer>
@@ -330,68 +292,7 @@
   <p>This document is valid until December 31, 2025.</p>
 </footer>
 
-<!-- 粒子插件脚本 -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
-  particlesJS("particles-js", {
-    "particles": {
-      "number": {
-        "value": 80,
-        "density": {
-          "enable": true,
-          "value_area": 800
-        }
-      },
-      "color": {
-        "value": "#00ccff" 
-      },
-      "shape": {
-        "type": "circle",
-        "stroke": {
-          "width": 0,
-          "color": "#000"
-        }
-      },
-      "opacity": {
-        "value": 0.5,
-        "random": false
-      },
-      "size": {
-        "value": 3,
-        "random": true
-      },
-      "line_linked": {
-        "enable": true,
-        "distance": 150,
-        "color": "#00ccff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
-        "enable": true,
-        "speed": 1,
-        "direction": "none",
-        "random": false,
-        "straight": false,
-        "out_mode": "bounce"
-      }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse"
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"
-        }
-      }
-    },
-    "retina_detect": true
-  });
-
   function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     if (currentTheme === 'light') {
